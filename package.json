@@ -1,0 +1,41 @@
+{
+  "name": "app.talregistry.com",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@nestjs/common": "3.0.0",
+    "@nestjs/core": "3.0.0",
+    "@nestjs/microservices": "3.0.0",
+    "@nestjs/websockets": "3.0.0",
+    "aws-sdk": "^2.94.0",
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.4",
+    "es6-promisify": "^5.0.0",
+    "eth-lightwallet": "github:dltlab/eth-lightwallet",
+    "hooked-web3-provider": "^1.0.0",
+    "ipfs-api": "^14.1.0",
+    "ipfs-js": "github:dltlab/ipfs.js",
+    "multihashes": "^0.4.5",
+    "multihashing": "^0.3.2",
+    "mysql": "^2.13.0",
+    "redis": "^2.7.1",
+    "reflect-metadata": "0.1.10",
+    "rxjs": "^5.4.0",
+    "semaphore-async-await": "^1.5.1",
+    "sleep-promise": "^2.0.0",
+    "typeorm": "0.1.0-alpha.33",
+    "typescript": "^2.4.2",
+    "web3": "^0.18.4"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.15",
+    "ethereumjs-util": "^5.1.2",
+    "express-session": "^1.15.5",
+    "jsonwebtoken": "^7.4.3",
+    "random-js": "^1.0.8",
+    "ts-node": "3.1.0"
+  }
+}

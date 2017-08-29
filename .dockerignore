@@ -1,0 +1,6 @@
+node_modules/
+local-compose-file.sh
+local-run-compose.sh
+docker-compose.yml
+docker-compose-local.yml
+ecr-build-image.sh
