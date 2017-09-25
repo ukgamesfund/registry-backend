@@ -1,5 +1,5 @@
 import {
-	Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, ManyToMany, OneToMany,
+	Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, OneToMany,
 } from 'typeorm';
 
 import {Membership} from "./membership.entity";

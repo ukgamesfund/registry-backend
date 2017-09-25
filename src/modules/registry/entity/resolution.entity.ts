@@ -1,8 +1,7 @@
 import {
-	Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, ManyToMany, OneToMany, ManyToOne, JoinColumn,
+	Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne, JoinColumn,
 } from 'typeorm';
 import {Project} from "./project.entity";
-import {User} from "./user.entity";
 import {Vote} from "./vote.entity";
 
 @Entity()

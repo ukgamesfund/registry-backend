@@ -3,11 +3,14 @@ import {Controller, Get, Post, HttpStatus, Req, Res, Param, Body, Put, Delete} f
 import {UsersService} from "../service/users.service";
 import {HttpException} from "@nestjs/core";
 import {User} from "../entity/user.entity";
+import {ConfirmationService} from "../service/confirmation.service";
 
 @Controller()
 export class UsersController {
 
-	constructor(private usersService: UsersService) {
+	constructor(
+		private usersService: UsersService,
+		private confirmationService: ConfirmationService) {
 	}
 
 	@Post('api/user')
@@ -18,7 +21,16 @@ export class UsersController {
 
 		const existing = await this.usersService.getByAddress(user.address)
 		if (existing) {
-			throw new HttpException("User already exists", 500);
+			throw new HttpException("User already exists", HttpStatus.BAD_REQUEST);
+		}
+
+		let confirmation = await this.confirmationService.getByEmail(user.email);
+		if(!confirmation) {
+			throw new HttpException("User already exists", HttpStatus.BAD_REQUEST);
+		}
+
+		if(!confirmation.confirmed) {
+			throw new HttpException("Email was not confirmed", HttpStatus.BAD_REQUEST);
 		}
 
 		const added = await this.usersService.add(user);

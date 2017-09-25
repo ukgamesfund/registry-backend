@@ -6,6 +6,7 @@ import {Membership} from "../entity/membership.entity";
 import {Resolution} from "../entity/resolution.entity";
 import {Vote} from "../entity/vote.entity";
 import {Project} from "../entity/project.entity";
+import {Confirmation} from "../entity/confirmation.entity";
 
 export class DatabaseConfig {
     public getConfiguration(): ConnectionOptions {
@@ -19,7 +20,7 @@ export class DatabaseConfig {
 
             autoSchemaSync: true,
             entities: [
-                User, Membership, Resolution, Vote, Project
+                User, Membership, Resolution, Vote, Project, Confirmation
             ],
 	        logging: 'all'
         };

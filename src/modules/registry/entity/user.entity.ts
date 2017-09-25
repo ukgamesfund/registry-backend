@@ -1,5 +1,5 @@
 import {
-	Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, ManyToMany, OneToMany,
+	Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, OneToMany,
 } from 'typeorm';
 import {Membership} from "./membership.entity";
 import {Vote} from "./vote.entity";
@@ -16,7 +16,10 @@ export class User {
 	@Column({name: 'address', nullable: false, unique: true})
 	address: string;
 
-	@Column({name: 'email', nullable: true})
+	@Column({name: 'name', nullable: true})
+	name: string;
+
+	@Column({name: 'email', nullable: true, unique: true})
 	email: string;
 
 	@Column('json', {name: 'details', nullable: true})

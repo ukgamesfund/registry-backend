@@ -6,6 +6,9 @@ import {UsersService} from "./service/users.service";
 import {UsersController} from "./controller/users.controller";
 import {SecurityMiddleware} from "./middleware/security.middleware";
 import {EthereumService} from "./service/ethereum.service";
+import {PingController} from "./controller/ping.controller";
+import {EmailService} from "./service/email.service";
+import {ConfirmationService} from "./service/confirmation.service";
 
 @Module({
 	modules: [],
@@ -13,11 +16,14 @@ import {EthereumService} from "./service/ethereum.service";
 		EthereumController,
 		UsersController,
 		SecurityController,
+		PingController,
 	],
 	components: [
 		UsersService,
 		DatabaseService,
 		EthereumService,
+		EmailService,
+		ConfirmationService,
 	],
 })
 export class RegistryModule implements NestModule {
