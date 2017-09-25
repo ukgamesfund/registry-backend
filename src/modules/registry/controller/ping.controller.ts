@@ -11,6 +11,6 @@ export class PingController {
 	@Get('api/ping')
 	public async ping(@Req() req, @Res() res: Response) {
 		console.log('get /ping');
-		res.status(HttpStatus.CREATED).json({message: 'pong'})
+		res.status(HttpStatus.OK).json({message: 'pong'})
 	}
 }
