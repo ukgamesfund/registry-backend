@@ -168,7 +168,8 @@ typings/
 prod.env
 dev.env
 
-src/**/*.js
+src/modules/**/*.js
+src/providers/*.js
 src/**/*.map
 src/configuration/*.json
 

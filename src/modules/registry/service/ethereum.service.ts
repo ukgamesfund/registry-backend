@@ -5,7 +5,7 @@ import {Utils} from "../../../providers/utility-service";
 
 let Es6Promisify = require('es6-promisify');
 let EthLightWallet = require('eth-lightwallet');
-let PromisifyWeb3 = require('../utils/promisifyWeb3.js');
+let PromisifyWeb3 = require('../../../utils/promisifyWeb3.js');
 let Web3 = require('web3');
 let HookedWeb3Provider = require('hooked-web3-provider');
 let Transaction = require("ethereumjs-tx");
