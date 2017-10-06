@@ -1,9 +1,9 @@
 import {
-	Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, OneToMany,
+	Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, OneToMany, OneToOne, JoinColumn,
 } from 'typeorm';
 import {Membership} from "./membership.entity";
 import {Vote} from "./vote.entity";
-
+import {UserEx} from "./user-ex.entity";
 
 @Entity()
 export class User {
@@ -13,17 +13,24 @@ export class User {
 	@PrimaryColumn('int', {generated: true})
 	id: number;
 
-	@Column({name: 'address', nullable: false, unique: true})
-	address: string;
+	@OneToOne(type => UserEx)
+	@JoinColumn()
+	userEx: UserEx;
+
+	@Column({name: 'email', nullable: false, unique: true})
+	email: string;
 
 	@Column({name: 'name', nullable: true})
 	name: string;
 
-	@Column({name: 'email', nullable: true, unique: true})
-	email: string;
+	@Column({name: 'mobile', nullable: true})
+	mobile: string;
 
 	@Column('json', {name: 'details', nullable: true})
 	details: any;
+
+	@Column({name: 'confirmed', nullable: false, default: false})
+	isAdmin: boolean;
 
 	@OneToMany(type => Membership, membership => membership.user, {
 		cascadeInsert: false,

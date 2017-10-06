@@ -122,15 +122,8 @@ export class SecurityController {
 		let saved = await this.confirmationService.update(confirmation);
 		console.log(JSON.stringify(saved));
 
-		let text = 'Your email confirmation code is: '+confirmation.code;
-		let html = 'Your email confirmation code is: <strong>'+confirmation.code+'</strong>';
+		await this.emailService.emailConfirmationCode(email, confirmation.code);
 
-		await this.emailService.send(
-			email,
-			'TalRegistry email confirmation code',
-			text,
-			html
-		);
 		res.status(HttpStatus.OK).json({message: 'email sent'});
 	}
 

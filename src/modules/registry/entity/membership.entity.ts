@@ -5,6 +5,10 @@ import {
 import {User} from "./user.entity";
 import {Project} from "./project.entity";
 
+export enum Role {
+	ProjectInitiator = 0,
+	CreativeFounder = 1
+}
 
 @Entity()
 export class Membership {
@@ -14,8 +18,14 @@ export class Membership {
 	@PrimaryColumn('int', {generated: true})
 	id: number;
 
-	@Column({name: 'role', nullable: true})
-	role: string;
+	@Column({name: 'role', nullable: false})
+	role: Role;
+
+	@Column({name: 'silvertals', nullable: true})
+	silverTals: number;
+
+	@Column({name: 'coppertals', nullable: true})
+	copperTals: number;
 
 	@ManyToOne(type => User, user => user.memberships, {
 		cascadeInsert: false,

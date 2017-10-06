@@ -1,7 +1,7 @@
 
 import {ConnectionOptions} from "typeorm";
 
-import {User} from "../entity/user.entity";
+import {User} from "../entity/user-ex.entity";
 import {Membership} from "../entity/membership.entity";
 import {Resolution} from "../entity/resolution.entity";
 import {Vote} from "../entity/vote.entity";

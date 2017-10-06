@@ -8,6 +8,7 @@ import {EthereumService} from "../service/ethereum.service";
 export class EthereumController {
 
 	constructor(private ethereumService: EthereumService) {
+		console.log("initializing the ethereum service...");
 		this.ethereumService.initialize();
 	}
 

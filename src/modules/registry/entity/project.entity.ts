@@ -5,6 +5,13 @@ import {
 import {Membership} from "./membership.entity";
 import {Resolution} from "./resolution.entity";
 
+export enum State {
+	Initiating = 0,
+	AwaitingConfirmation = 1,
+	Confirmed = 2,
+	Rejected = 3
+}
+
 @Entity()
 export class Project {
 	constructor() {
@@ -13,11 +20,17 @@ export class Project {
 	@PrimaryColumn('int', {generated: true})
 	id: number;
 
-	@Column({name: 'address', nullable: true})
+	@Column({name: 'address', nullable: false, unique:true})
 	address: string;
 
-	@Column({name: 'name', nullable: true})
+	@Column({name: 'name', nullable: false, unique: true})
 	name: string;
+
+	@Column({name: 'email', nullable: false})
+	email: string;
+
+	@Column({name:'state', nullable: false})
+	state: State;
 
 	@Column('json', {name: 'details', nullable: true})
 	details: any;

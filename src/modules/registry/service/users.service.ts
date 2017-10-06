@@ -35,13 +35,20 @@ export class UsersService implements Service<User> {
 		return (await this.repository).find();
 	}
 
-
 	public async get(id: number): Promise<User> {
 		return (await this.repository).findOneById(id);
 	}
 
+	public async getByEmail(email: string): Promise<User> {
+		return (await this.repository).findOne({email: email})
+	}
+
 	public async getByAddress(address: string): Promise<User> {
-		return (await this.repository).findOne({address: address})
+		return (await this.repository)
+			.createQueryBuilder("user")
+			.innerJoinAndSelect("user.userEx", "userex")
+			.where("userex.address=address")
+			.getOne();
 	}
 
 	public async update(user: User): Promise<User> {
@@ -51,5 +58,4 @@ export class UsersService implements Service<User> {
 	public async remove(user: User): Promise<User> {
 		return (await this.repository).remove(user);
 	}
-
 }

@@ -9,6 +9,10 @@ import {EthereumService} from "./service/ethereum.service";
 import {PingController} from "./controller/ping.controller";
 import {EmailService} from "./service/email.service";
 import {ConfirmationService} from "./service/confirmation.service";
+import {ProjectsController} from "./controller/projects.controller";
+import {UsersExService} from "./service/user-ex.service";
+import {ProjectsService} from "./service/projects.service";
+import {MembershipService} from "./service/membership.service";
 
 @Module({
 	modules: [],
@@ -17,6 +21,7 @@ import {ConfirmationService} from "./service/confirmation.service";
 		UsersController,
 		SecurityController,
 		PingController,
+		ProjectsController,
 	],
 	components: [
 		UsersService,
@@ -24,8 +29,12 @@ import {ConfirmationService} from "./service/confirmation.service";
 		EthereumService,
 		EmailService,
 		ConfirmationService,
+		UsersExService,
+		ProjectsService,
+		MembershipService
 	],
 })
+
 export class RegistryModule implements NestModule {
 	public configure(consumer: MiddlewaresConsumer) {
 		consumer.apply(SecurityMiddleware).forRoutes(
